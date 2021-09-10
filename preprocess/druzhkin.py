@@ -4,7 +4,7 @@ from preprocess.lemmatize import PyMorphyLemmatizer
 from collections import Counter
 from string import punctuation
 from deeppavlov.models.tokenizers.ru_sent_tokenizer import ru_sent_tokenize
-from preprocess.tokenize_1 import Tokenizer
+from preprocess.tokenize import Tokenizer
 import numpy as np
 from pathlib import Path
 
