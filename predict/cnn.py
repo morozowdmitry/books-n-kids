@@ -11,7 +11,7 @@ import os
 import pickle
 from sklearn.model_selection import KFold
 import re
-from predict.baseline_model import get_books_list, prepare_books_dataframe
+# from predict.baseline_model import get_books_list, prepare_books_dataframe
 import spacy
 import torch.nn as nn
 import torch.nn.functional as F
@@ -259,11 +259,11 @@ def KFold_predict(df_test, n_models):
     for i in tqdm(range(n_models)):
         model_file = os.path.join(predict_path / 'cnn_models', 'model_' + str(i) + '.pt')
         model.load_state_dict(torch.load(model_file))
-        label_vocab = np.loadtxt(predict_path / ('label_vocab_' + str(i)))
+        label_vocab = np.loadtxt(predict_path / ('label_vocabs/label_vocab_' + str(i)))
         label_vocab = [int(l) for l in label_vocab]
         # print(label_vocab)
 
-        with open(predict_path / ("vocab_" + str(i)), 'rb') as vocab_file:
+        with open(predict_path / ("vocabs/vocab_" + str(i)), 'rb') as vocab_file:
             vocab = pickle.load(vocab_file)
             model_predicts = []
             for text, meta in zip(texts, metadata):
