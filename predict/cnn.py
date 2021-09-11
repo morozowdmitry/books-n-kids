@@ -1,24 +1,32 @@
 import numpy as np
 import pandas as pd
-from nltk.corpus import stopwords
+
 import nltk
+from nltk.corpus import stopwords
+
 import torch
 from torchtext.legacy import data
-from string import punctuation
 from torchtext.vocab import Vectors
-import time
-import os
-import pickle
-from sklearn.model_selection import KFold
-import re
-# from predict.baseline_model import get_books_list, prepare_books_dataframe
-import spacy
 import torch.nn as nn
 import torch.nn.functional as F
-from tqdm import tqdm
 import torch.optim as optim
+
+from string import punctuation
+import re
+
+import spacy
+
+from sklearn.model_selection import KFold
 from sklearn.metrics import accuracy_score
+
+import time
+from tqdm import tqdm
+import os
+import pickle
 from pathlib import Path
+
+# from predict.baseline_model import get_books_list, prepare_books_dataframe
+
 
 base_path = Path(__file__).parent
 predict_path = (base_path / "../predict").resolve()
@@ -53,11 +61,9 @@ def string_arr_to_list(str_arr):
     return res
 
 
-# device = torch.cuda.device(2)
-# torch.cuda.set_device(1)
 device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 TEXT = data.Field(tokenize='spacy',
-                  tokenizer_language='ru_core_news_lg',
+                      tokenizer_language='ru_core_news_lg',
                   preprocessing=remove_stopwords)
 LABEL = data.LabelField()
 METADATA = data.Field(sequential=False, use_vocab=False, dtype=torch.float32,

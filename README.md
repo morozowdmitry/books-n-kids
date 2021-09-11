@@ -15,5 +15,6 @@
 ### Инструкция по запуску
 
 - Скачайте и распакуйте в predict/ файлы из этой папки: https://drive.google.com/drive/folders/1BwhG1_orhDDbDrCTvtPd09nzsJ7NctMM?usp=sharing
+- Скачайте модель эмбеддингов и разместите её predict/
 - Запустите run.sh для настройки окружения
 - Запустите readability.py при помощи созданного окружения (текст для оценки добавьте в test_text.txt)

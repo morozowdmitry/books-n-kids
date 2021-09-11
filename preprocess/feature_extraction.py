@@ -9,7 +9,7 @@ import numpy as np
 from pathlib import Path
 
 
-class DruzhkinAnalyzer(object):
+class FeatureExtractor(object):
     def __init__(self):
         base_path = Path(__file__).parent
         self.preprocess_folder = (base_path / "../preprocess").resolve()
@@ -53,10 +53,10 @@ class DruzhkinAnalyzer(object):
         #                   'ление', 'льный', 'нение', 'ность', 'овать', 'орить', 'оящий',
         #                   'ствие', 'татья', 'шение']
 
-        self.tops = ['top_800_nouns', 'rk_100_1000_nouns', 'top_700_nouns', 'top_600_nouns',
-                     'rk_100_1000_verbs', 'top_100_verbs', 'top_1000', 'top_300', 'top_500',
-                     'rk_100_2500', 'top_900', 'top_700', 'top_200', 'top_800', 'top_400',
-                     'top_100', 'top_600']
+        # self.tops = ['top_800_nouns', 'rk_100_1000_nouns', 'top_700_nouns', 'top_600_nouns',
+        #              'rk_100_1000_verbs', 'top_100_verbs', 'top_1000', 'top_300', 'top_500',
+        #              'rk_100_2500', 'top_900', 'top_700', 'top_200', 'top_800', 'top_400',
+        #              'top_100', 'top_600']
 
         self.morph = pymorphy2.MorphAnalyzer()
         self.lemmatizer = PyMorphyLemmatizer()

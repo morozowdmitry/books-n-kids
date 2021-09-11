@@ -1,5 +1,5 @@
 from predict.cnn import KFold_predict
-from preprocess.druzhkin import DruzhkinAnalyzer
+from preprocess.feature_extraction import FeatureExtractor
 import pandas as pd
 import numpy as np
 import re
@@ -9,7 +9,7 @@ sentence_slice = 70
 
 def predict_text_class(text):
     text = text.replace('—', '')
-    analyzer = DruzhkinAnalyzer()
+    analyzer = FeatureExtractor()
     text = text.replace('\n', '')
     text = re.sub(' +', ' ', text)
     sentences = ru_sent_tokenize(text)
